@@ -1,7 +1,7 @@
 class WelcomeController < ApplicationController
-  def index
+  def index  #invokes the views index 
   end
 
-  def about
+  def about #invokes the view about 
   end
 end
