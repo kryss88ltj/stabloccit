@@ -42,6 +42,7 @@ end
 
 gem 'bootstrap-sass', '~> 3.1.1'
 gem 'faker'
+gem 'devise'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
