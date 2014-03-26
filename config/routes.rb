@@ -2,16 +2,10 @@ Stabloccit::Application.routes.draw do
 
   devise_for :users
   resources :users, only: [:update]
-  # get "posts/index"
-  # get "posts/show"
-  # get "posts/new"
-  # get "posts/edit"
-  # get "welcome/index"
-  # get "welcome/about"
-  # this above is what existed before we changed it to the below
 
   resources :topics do
     resources :posts, except: [:index]
+      resources :comments, only: [:create]
   end
 
   match "about", to: 'welcome#about', via: :get
