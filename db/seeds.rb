@@ -20,7 +20,7 @@ end
   user.skip_confirmation!
   user.save
   
-  5.times do
+  50.times do
     topic = topics.first
     post = Post.create(
       user: user,
