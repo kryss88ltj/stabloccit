@@ -8,8 +8,8 @@ topics = []
     description: Faker::Lorem.paragraph
   )
 end
-
-# Create 5 users with their own posts
+ 
+# Create 5 users with their own topics and posts
 5.times do
   password = Faker::Lorem.characters(10)
   user = User.new(
@@ -19,8 +19,8 @@ end
     password_confirmation: password)
   user.skip_confirmation!
   user.save
-  
-  50.times do
+
+  5.times do
     topic = topics.first
     post = Post.create(
       user: user,
@@ -29,12 +29,12 @@ end
       body: Faker::Lorem.paragraph)
     # set the created_at to a time within the past year
     post.update_attribute(:created_at, Time.now - rand(600..31536000))
+    post.update_rank
 
     topics.rotate!
   end
 end
 
-#creating comments
 post_count = Post.count
 User.all.each do |user|
   4.times do
@@ -45,7 +45,6 @@ User.all.each do |user|
     comment.update_attribute(:created_at, Time.now - rand(600..31536000))
   end
 end
-
 
 # Create an admin user
 admin = User.new(

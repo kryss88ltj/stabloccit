@@ -1,6 +1,5 @@
 class CommentsController < ApplicationController
   def create
-    # @comment = Comment.new(topic_params)
     @comment = Comment.new
     authorize @comment
     if @comment.save
