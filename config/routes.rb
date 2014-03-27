@@ -5,7 +5,7 @@ Stabloccit::Application.routes.draw do
 
   resources :topics do
     resources :posts, except: [:index]
-      resources :comments, only: [:create]
+      resources :comments, only: [:create, :destroy]
   end
 
   match "about", to: 'welcome#about', via: :get
