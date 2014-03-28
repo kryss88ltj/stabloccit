@@ -69,7 +69,7 @@ moderator.update_attribute(:role, 'moderator')
 # Create a member
 member = User.new(
   name: 'Member User',
-  email: 'member@example.com', 
+  email: 'christine.stauffer@gmail.com', 
   password: 'helloworld', 
   password_confirmation: 'helloworld')
 member.skip_confirmation!
