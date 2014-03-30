@@ -4,8 +4,9 @@ class Comment < ActiveRecord::Base
   
   validates :body, presence: true
 
+  default_scope { order('updated_at DESC') }
 
- after_create :send_favorite_emails
+  after_create :send_favorite_emails
 
   private
 

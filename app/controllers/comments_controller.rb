@@ -1,11 +1,12 @@
 class CommentsController < ApplicationController
   respond_to :html, :js
-def create
-    @topic = Topic.find( params[:topic_id] )
-    @post = @topic.posts.find( params[:post_id] )
+
+  def create
+    @topic = Topic.find(params[:topic_id])
+    @post = @topic.posts.find(params[:post_id])
     @comments = @post.comments
 
-    @comment = current_user.comments.build( comment_params )
+    @comment = current_user.comments.build(params.require(:comment).permit(:body, :post_id))
     @comment.post = @post
     @new_comment = Comment.new
 
